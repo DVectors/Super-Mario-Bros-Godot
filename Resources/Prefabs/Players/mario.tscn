@@ -1,0 +1,90 @@
+[gd_scene load_steps=14 format=3 uid="uid://bqbk3iejqw6ct"]
+
+[ext_resource type="Texture2D" uid="uid://daq4x46xvd3ot" path="res://Resources/Sprites/Player/Mario/mario_idle.png" id="1_l2rhg"]
+[ext_resource type="Script" uid="uid://dcrdimwe3u30i" path="res://Resources/Scripts/Players/mario.gd" id="1_pqfsm"]
+[ext_resource type="Texture2D" uid="uid://bfeymnovrcpa7" path="res://Resources/Sprites/Player/Mario/mario_dead.png" id="2_e65qd"]
+[ext_resource type="Texture2D" uid="uid://c76txdyg4svmr" path="res://Resources/Sprites/Player/Mario/mario_jump.png" id="2_r82oe"]
+[ext_resource type="Texture2D" uid="uid://cbhlew3k1hwjt" path="res://Resources/Sprites/Player/Mario/mario_walk.png" id="3_mehmk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sn36"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5dji"]
+atlas = ExtResource("2_e65qd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4fuv"]
+atlas = ExtResource("1_l2rhg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqfsm"]
+atlas = ExtResource("2_r82oe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e65qd"]
+atlas = ExtResource("3_mehmk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klabb"]
+atlas = ExtResource("3_mehmk")
+region = Rect2(18, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jt3m"]
+atlas = ExtResource("3_mehmk")
+region = Rect2(36, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r82oe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5dji")
+}],
+"loop": true,
+"name": &"mario_dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4fuv")
+}],
+"loop": true,
+"name": &"mario_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqfsm")
+}],
+"loop": true,
+"name": &"mario_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e65qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klabb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jt3m")
+}],
+"loop": true,
+"name": &"mario_walk",
+"speed": 12.0
+}]
+
+[node name="Mario" type="CharacterBody2D"]
+script = ExtResource("1_pqfsm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6sn36")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_r82oe")
+animation = &"mario_idle"
+autoplay = "mario_idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.995, 1.995)
