@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://1vkehuojq6yr"]
+
+[ext_resource type="Script" uid="uid://c6ecedguk2ab" path="res://Resources/Scripts/Enemies/enemy.gd" id="1_kmlcn"]
+[ext_resource type="Texture2D" uid="uid://dcx73lbs3x5xc" path="res://Resources/Sprites/Enemies/Goombas/Overworld/overworld_goomba_dead.png" id="1_psikw"]
+[ext_resource type="Texture2D" uid="uid://cht63c1gimp2a" path="res://Resources/Sprites/Enemies/Goombas/Overworld/overworld_goomba.png" id="2_kmlcn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4yo8"]
+size = Vector2(14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nwgh"]
+atlas = ExtResource("1_psikw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrrwm"]
+atlas = ExtResource("2_kmlcn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42mq4"]
+atlas = ExtResource("2_kmlcn")
+region = Rect2(18, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ub7x2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nwgh")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrrwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42mq4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Goomba" type="CharacterBody2D"]
+script = ExtResource("1_kmlcn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i4yo8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ub7x2")
+autoplay = "default"
