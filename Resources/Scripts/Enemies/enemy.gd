@@ -9,6 +9,7 @@ class_name Enemy
 @export var can_fly: bool = false
 @export var can_pass_walls: bool = false
 @export var is_platform: bool = false
+@export var can_turn_around: bool = false
 @export_enum("Left", "Right") var start_direction: String = "Left"
 
 var direction: int
