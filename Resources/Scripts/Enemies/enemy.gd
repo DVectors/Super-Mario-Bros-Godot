@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	handle_gravity(delta)
 	
-	position.x += direction * speed * delta
+	velocity.x = direction * speed
 	
 	move_and_slide()
 	
