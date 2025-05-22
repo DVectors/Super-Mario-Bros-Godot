@@ -15,7 +15,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	persistent_state.velocity.y = JUMP_VELOCITY
 	
-	if persistent_state.velocity.y >= JUMP_VELOCITY:
+	if persistent_state.velocity.y >= JUMP_VELOCITY or Input.is_action_just_released("ui_accept"):
 		change_state.call("fall")	
 	
 	persistent_state.move_and_slide()

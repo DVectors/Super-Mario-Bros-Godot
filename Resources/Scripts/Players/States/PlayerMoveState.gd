@@ -36,5 +36,5 @@ func move_right():
 	else:
 		change_state.call("idle")
 
-func get_state_name():
+func get_state_name() -> String:
 	return "PlayerMoveState"

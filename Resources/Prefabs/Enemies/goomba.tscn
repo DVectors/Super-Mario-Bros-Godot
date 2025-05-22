@@ -42,6 +42,7 @@ animations = [{
 }]
 
 [node name="Goomba" type="CharacterBody2D"]
+safe_margin = 0.1
 script = ExtResource("1_kmlcn")
 speed = 50.0
 
@@ -52,3 +53,4 @@ shape = SubResource("RectangleShape2D_i4yo8")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ub7x2")
 autoplay = "default"
+frame_progress = 0.304024

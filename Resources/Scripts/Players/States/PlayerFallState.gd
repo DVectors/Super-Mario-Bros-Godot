@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 		
 	persistent_state.move_and_slide()
 
-func get_state_name():
+func get_state_name() -> String:
 	return "PlayerFallState"
 
 func move_left():

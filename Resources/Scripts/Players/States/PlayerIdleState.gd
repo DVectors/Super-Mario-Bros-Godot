@@ -29,5 +29,5 @@ func move_right():
 	else:
 		_flip_direction()
 
-func get_state_name():
+func get_state_name() -> String:
 	return "PlayerIdleState"
