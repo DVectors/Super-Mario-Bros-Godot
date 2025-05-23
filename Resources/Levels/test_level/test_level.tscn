@@ -16,5 +16,8 @@ tile_map_data = PackedByteArray("AAD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD7/wIAAAAAAAA
 [node name="Koopa Troopa" parent="." instance=ExtResource("4_3v2vq")]
 position = Vector2(216, -12)
 
-[node name="Goomba" parent="." instance=ExtResource("3_nep21")]
-position = Vector2(280, -56)
+[node name="Goomba2" parent="." instance=ExtResource("3_nep21")]
+position = Vector2(176, -8)
+
+[node name="Goomba3" parent="." instance=ExtResource("3_nep21")]
+position = Vector2(256, -8)

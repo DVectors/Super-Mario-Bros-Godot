@@ -15,16 +15,21 @@ class_name Enemy
 var direction: int
 var animated_sprite_2d: AnimatedSprite2D
 
+const Directions: Dictionary = {
+	LEFT = -1,
+	RIGHT = 1
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animated_sprite_2d = get_node("AnimatedSprite2D")
+	animated_sprite_2d = $AnimatedSprite2D
 	direction = set_start_direction()
 	
 func set_start_direction() -> int:
 	if start_direction == "Left":
-		return -1
+		return Directions.LEFT
 	else:
-		return 1
+		return Directions.RIGHT
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -46,12 +51,12 @@ func handle_gravity(delta: float) -> void:
 			
 func detect_wall() -> void:
 	if is_on_wall():
-		if direction == -1: #Left
+		if direction == Directions.LEFT: #Left
 			_flip_direction()
-			direction = 1
-		elif direction == 1: #Right
+			direction = Directions.RIGHT
+		elif direction == Directions.RIGHT: #Right
 			_flip_direction()
-			direction = -1
+			direction = Directions.LEFT
 
 func _flip_direction():
 	animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
