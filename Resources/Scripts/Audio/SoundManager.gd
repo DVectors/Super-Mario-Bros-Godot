@@ -2,14 +2,14 @@ extends Node
 
 class_name SoundManager
 
-const SOUND_EFFECTS: Dictionary = {
-	"jump" : preload("res://Resources/Audio/SoundEffects/jump.wav")
-}
-
+static var SOUND_EFFECTS: Dictionary = {}
 static var audio_players: Dictionary = {}
+
+const SOUNDS_CSV_PATH: String = "res://Resources/CSVs/sounds.csv"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SOUND_EFFECTS = CSVReader.load_resources_csv_to_dict(SOUNDS_CSV_PATH)
 	__setup_audio_players()
 		
 func __setup_audio_players() -> void:

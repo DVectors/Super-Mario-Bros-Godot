@@ -87,4 +87,4 @@ animation = &"mario_idle"
 autoplay = "mario_idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.995, 1.995)
+zoom = Vector2(2.665, 2.665)
