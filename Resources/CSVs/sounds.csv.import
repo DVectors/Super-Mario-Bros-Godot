@@ -3,11 +3,13 @@
 importer="csv_translation"
 type="Translation"
 uid="uid://bnxe8kc1u7uq"
-valid=false
 
 [deps]
 
+files=["res://Resources/CSVs/sounds.path.translation"]
+
 source_file="res://Resources/CSVs/sounds.csv"
+dest_files=["res://Resources/CSVs/sounds.path.translation"]
 
 [params]
 
