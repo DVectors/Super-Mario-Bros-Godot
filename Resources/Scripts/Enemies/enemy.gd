@@ -12,9 +12,10 @@ class_name Enemy
 @export var can_turn_from_edge: bool = false
 @export_enum("Left", "Right") var start_direction: String = "Left"
 
-var direction: int
-var animated_sprite_2d: AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
+var direction: int
 const Directions: Dictionary = {
 	LEFT = -1,
 	RIGHT = 1
@@ -22,7 +23,6 @@ const Directions: Dictionary = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animated_sprite_2d = $AnimatedSprite2D
 	direction = set_start_direction()
 	
 func set_start_direction() -> int:
@@ -36,20 +36,20 @@ func _process(delta: float) -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
-	handle_gravity(delta)
+	__handle_gravity(delta)
 
-	detect_wall()
+	__detect_wall()
 	
 	velocity.x = direction * speed
 	
 	move_and_slide()
 	
-func handle_gravity(delta: float) -> void:
+func __handle_gravity(delta: float) -> void:
 	if not can_fly:
 		if not is_on_floor():
 			velocity += get_gravity() * delta # Apply gravity
 			
-func detect_wall() -> void:
+func __detect_wall() -> void:
 	if is_on_wall():
 		if direction == Directions.LEFT: #Left
 			_flip_direction()
@@ -61,5 +61,16 @@ func detect_wall() -> void:
 func _flip_direction():
 	animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
 	
-func on_death() -> void:
-	pass
+func die(death_type: DeathTypes) -> void:
+	collision_shape_2d.disabled = true
+	
+	match death_type:
+		DeathTypes.STOMPED:
+#			velocity.x = 0 #Enemy should stop moving
+#			SoundManager.play("")
+#			animated_sprite_2d.play("stomped")
+			pass
+		DeathTypes.FIREBALL:
+			pass
+		DeathTypes.HIT:
+			pass
