@@ -29,6 +29,8 @@ animations = [{
 }]
 
 [node name="Koopa Troopa" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 6
 safe_margin = 0.1
 script = ExtResource("1_s48uw")
 speed = 50.0

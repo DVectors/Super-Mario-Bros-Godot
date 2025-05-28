@@ -75,6 +75,7 @@ animations = [{
 }]
 
 [node name="Mario" type="CharacterBody2D"]
+collision_mask = 6
 script = ExtResource("1_pqfsm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
