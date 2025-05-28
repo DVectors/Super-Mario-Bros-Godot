@@ -28,7 +28,7 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="Koopa Troopa" type="CharacterBody2D"]
+[node name="Koopa Troopa" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 4
 collision_mask = 6
 safe_margin = 0.1

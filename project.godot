@@ -24,6 +24,10 @@ CsvReader="*res://Resources/Scripts/Utilities/CSVReader.gd"
 
 project/assembly_name="super-mario-bros-godot"
 
+[global_group]
+
+Enemies="Game enemies go her"
+
 [input]
 
 ui_accept={
