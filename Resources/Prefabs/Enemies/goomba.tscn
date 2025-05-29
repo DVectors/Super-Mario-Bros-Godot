@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cht63c1gimp2a" path="res://Resources/Sprites/Enemies/Goombas/Overworld/overworld_goomba.png" id="2_kmlcn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4yo8"]
-size = Vector2(14, 16)
+size = Vector2(16, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0nwgh"]
 atlas = ExtResource("1_psikw")
@@ -49,6 +49,7 @@ script = ExtResource("1_kmlcn")
 speed = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_i4yo8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

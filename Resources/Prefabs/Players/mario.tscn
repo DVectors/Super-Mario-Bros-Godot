@@ -76,6 +76,7 @@ animations = [{
 
 [node name="Mario" type="CharacterBody2D"]
 collision_mask = 6
+platform_on_leave = 2
 script = ExtResource("1_pqfsm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -89,3 +90,8 @@ autoplay = "mario_idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.665, 2.665)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 4)
+target_position = Vector2(0, 19)
+collision_mask = 2

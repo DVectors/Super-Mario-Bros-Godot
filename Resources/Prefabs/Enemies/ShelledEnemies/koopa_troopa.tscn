@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c6ecedguk2ab" path="res://Resources/Scripts/Enemies/enemy.gd" id="1_s48uw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s48uw"]
-size = Vector2(14, 17)
+size = Vector2(15, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ul0qg"]
 atlas = ExtResource("1_clg6v")
@@ -29,14 +29,14 @@ animations = [{
 }]
 
 [node name="Koopa Troopa" type="CharacterBody2D" groups=["Enemies"]]
-collision_layer = 4
+collision_layer = 2
 collision_mask = 6
 safe_margin = 0.1
 script = ExtResource("1_s48uw")
 speed = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3.5)
+position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_s48uw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

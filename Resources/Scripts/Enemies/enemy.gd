@@ -61,16 +61,18 @@ func __detect_wall() -> void:
 func _flip_direction():
 	animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
 	
-func die(death_type: DeathTypes) -> void:
-	collision_shape_2d.disabled = true
-	
-	match death_type:
-		DeathTypes.STOMPED:
-#			velocity.x = 0 #Enemy should stop moving
-#			SoundManager.play("")
-#			animated_sprite_2d.play("stomped")
-			pass
-		DeathTypes.FIREBALL:
-			pass
-		DeathTypes.HIT:
-			pass
+func die(death_type: int) -> void:
+#	collision_shape_2d.disabled = true
+#	
+#	match death_type:
+#		DeathTypes.STOMPED:
+#			__handle_stomp_death()
+#		DeathTypes.FIREBALL:
+#			pass
+#		DeathTypes.HIT:
+#			pass
+	SoundManager.play("stomp")
+	queue_free()
+
+func __handle_stomp_death() -> void:
+	pass
