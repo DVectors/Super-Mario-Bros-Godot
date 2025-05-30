@@ -91,7 +91,17 @@ autoplay = "mario_idle"
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.665, 2.665)
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCastDownLeft" type="RayCast2D" parent="."]
+position = Vector2(-7, 4)
+target_position = Vector2(0, 19)
+collision_mask = 2
+
+[node name="RayCastDownRight" type="RayCast2D" parent="."]
+position = Vector2(7, 4)
+target_position = Vector2(0, 19)
+collision_mask = 2
+
+[node name="RayCastDownMiddle" type="RayCast2D" parent="."]
 position = Vector2(0, 4)
 target_position = Vector2(0, 19)
 collision_mask = 2

@@ -10,7 +10,7 @@ const BOUNCE_VELOCITY: float = -500.0
 var state
 var state_factory
 
-@onready var raycast_2d: RayCast2D = $RayCast2D
+@onready var downwards_raycasts: Array[RayCast2D] = [$RayCastDownLeft, $RayCastDownRight, $RayCastDownMiddle]
 
 func _ready() -> void:
 	state_factory = StateFactory.new()
@@ -44,17 +44,18 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta # Apply gravity - Persistent across all states
 	
-	__handle_collisions()
+	__handle_downward_collisions()
 	
-func __handle_collisions() -> void:
-	if raycast_2d.is_colliding():
-		var collision: Object = raycast_2d.get_collider()
-		
-		if collision is Enemy:				
-			var enemy: Enemy = collision as Enemy # Cast collision as enemy to access its methods
+func __handle_downward_collisions() -> void:
+	for raycast_2d in downwards_raycasts:
+		if raycast_2d.is_colliding():
+			var collision: Object = raycast_2d.get_collider()
 			
-			velocity.y = BOUNCE_VELOCITY
-			enemy.die(DeathTypes.STOMPED)
+			if collision is Enemy:				
+				var enemy: Enemy = collision as Enemy # Cast collision as enemy to access its methods
+				
+				velocity.y = BOUNCE_VELOCITY
+				enemy.die(DeathTypes.STOMPED)
 			
 func __stomp() -> void:
 	pass
