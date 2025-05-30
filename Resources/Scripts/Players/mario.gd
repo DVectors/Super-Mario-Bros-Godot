@@ -51,11 +51,11 @@ func __handle_downward_collisions() -> void:
 		if raycast_2d.is_colliding():
 			var collision: Object = raycast_2d.get_collider()
 			
-			if collision is Enemy:				
+			if collision is Enemy:
 				var enemy: Enemy = collision as Enemy # Cast collision as enemy to access its methods
-				
-				velocity.y = BOUNCE_VELOCITY
-				enemy.die(DeathTypes.STOMPED)
+				__stomp(enemy)
 			
-func __stomp() -> void:
-	pass
+func __stomp(enemy: Enemy) -> void:
+	if not enemy.is_spiky and not enemy.is_platform:
+		velocity.y = BOUNCE_VELOCITY
+		enemy.die(DeathTypes.STOMPED)
