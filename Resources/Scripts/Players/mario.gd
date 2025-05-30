@@ -43,10 +43,14 @@ func change_state(new_state):
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta # Apply gravity - Persistent across all states
-	
-	__handle_downward_collisions()
+		__handle_downward_collisions()
+		
+	if is_on_floor():
+		__enable_raycasts(false)
 	
 func __handle_downward_collisions() -> void:
+	__enable_raycasts(true)
+	
 	for raycast_2d in downwards_raycasts:
 		if raycast_2d.is_colliding():
 			var collision: Object = raycast_2d.get_collider()
@@ -54,6 +58,10 @@ func __handle_downward_collisions() -> void:
 			if collision is Enemy:
 				var enemy: Enemy = collision as Enemy # Cast collision as enemy to access its methods
 				__stomp(enemy)
+
+func __enable_raycasts(enable: bool) -> void:
+	for raycast_2d in downwards_raycasts:
+		raycast_2d.enabled = enable
 			
 func __stomp(enemy: Enemy) -> void:
 	if not enemy.is_spiky and not enemy.is_platform:

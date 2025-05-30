@@ -87,6 +87,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_r82oe")
 animation = &"mario_idle"
 autoplay = "mario_idle"
+frame_progress = 0.781833
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.665, 2.665)
