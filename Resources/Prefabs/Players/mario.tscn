@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqbk3iejqw6ct"]
+[gd_scene load_steps=15 format=3 uid="uid://bqbk3iejqw6ct"]
 
 [ext_resource type="Texture2D" uid="uid://daq4x46xvd3ot" path="res://Resources/Sprites/Player/Mario/mario_idle.png" id="1_l2rhg"]
 [ext_resource type="Script" uid="uid://dcrdimwe3u30i" path="res://Resources/Scripts/Players/mario.gd" id="1_pqfsm"]
@@ -74,6 +74,9 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqfsm"]
+size = Vector2(16, 5)
+
 [node name="Mario" type="CharacterBody2D"]
 collision_mask = 6
 platform_on_leave = 2
@@ -93,16 +96,24 @@ frame_progress = 0.781833
 zoom = Vector2(2.665, 2.665)
 
 [node name="RayCastDownLeft" type="RayCast2D" parent="."]
-position = Vector2(-7, 4)
-target_position = Vector2(0, 19)
+position = Vector2(-7, 8)
+target_position = Vector2(0, 15)
 collision_mask = 2
 
 [node name="RayCastDownRight" type="RayCast2D" parent="."]
-position = Vector2(7, 4)
-target_position = Vector2(0, 19)
+position = Vector2(7, 8)
+target_position = Vector2(0, 15)
 collision_mask = 2
 
 [node name="RayCastDownMiddle" type="RayCast2D" parent="."]
-position = Vector2(0, 4)
-target_position = Vector2(0, 19)
+position = Vector2(0, 8)
+target_position = Vector2(0, 15)
 collision_mask = 2
+
+[node name="StompArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_pqfsm")
+debug_color = Color(0.98539, 0, 0.334244, 0.42)

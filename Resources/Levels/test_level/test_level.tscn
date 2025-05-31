@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cub21kxtd1jhb" path="res://Resources/Prefabs/Enemies/ShelledEnemies/koopa_troopa.tscn" id="4_3v2vq"]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(2, 0)
+position = Vector2(1, 0)
 
 [node name="Mario" parent="." instance=ExtResource("1_4htgh")]
 position = Vector2(0, -8)
@@ -22,3 +22,7 @@ position = Vector2(176, -8)
 
 [node name="Goomba3" parent="." instance=ExtResource("3_nep21")]
 position = Vector2(256, -8)
+
+[node name="Goomba" parent="." instance=ExtResource("3_nep21")]
+position = Vector2(39, -8)
+can_move = false

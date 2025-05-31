@@ -10,6 +10,7 @@ class_name Enemy
 @export var can_pass_walls: bool = false
 @export var is_platform: bool = false
 @export var can_turn_from_edge: bool = false
+@export var can_move: bool = true
 @export_enum("Left", "Right") var start_direction: String = "Left"
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -40,7 +41,8 @@ func _physics_process(delta: float) -> void:
 
 	__detect_wall()
 	
-	velocity.x = direction * speed
+	if can_move:
+		velocity.x = direction * speed
 	
 	move_and_slide()
 	

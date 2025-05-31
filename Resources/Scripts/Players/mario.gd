@@ -11,6 +11,7 @@ var state
 var state_factory
 
 @onready var downwards_raycasts: Array[RayCast2D] = [$RayCastDownLeft, $RayCastDownRight, $RayCastDownMiddle]
+@onready var stomp_area: Area2D = $StompArea
 
 func _ready() -> void:
 	state_factory = StateFactory.new()
@@ -47,6 +48,8 @@ func _physics_process(delta: float) -> void:
 		
 	if is_on_floor():
 		__enable_raycasts(false)
+		
+	__check_if_object_in_stomp_area()
 	
 func __handle_downward_collisions() -> void:
 	__enable_raycasts(true)
@@ -58,6 +61,14 @@ func __handle_downward_collisions() -> void:
 			if collision is Enemy:
 				var enemy: Enemy = collision as Enemy # Cast collision as enemy to access its methods
 				__stomp(enemy)
+				
+func __check_if_object_in_stomp_area() -> void:
+	for body in stomp_area.get_overlapping_bodies():
+		if body is Enemy:
+			print("Enemy in stomp_area")
+			var enemy: Enemy = body as Enemy
+			print("Kill enemy in stomp_area")
+			__stomp(enemy)
 
 func __enable_raycasts(enable: bool) -> void:
 	for raycast_2d in downwards_raycasts:
