@@ -13,6 +13,7 @@ class_name Enemy
 @export var is_platform: bool = false
 @export var can_turn_from_edge: bool = false
 @export var can_move: bool = true
+@export var is_friendly: bool = false
 @export_enum("Left", "Right") var start_direction: String = "Left"
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -27,12 +28,19 @@ const Directions: Dictionary = {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	direction = set_start_direction()
+	__set_enemy_to_friendly()
+		
 	
 func set_start_direction() -> int:
 	if start_direction == "Left":
 		return Directions.LEFT
 	else:
 		return Directions.RIGHT
+		
+func __set_enemy_to_friendly() -> void:
+	if  is_friendly:
+		set_collision_layer_value(2, false) # Disable object on the enemy layer
+		set_collision_layer_value(4, true) # Set layer to friendly, so player can pass through them
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
