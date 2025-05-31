@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 class_name Enemy
 
+@export_category("General")
 @export var speed: float = 20
 @export var points: int = 100
 
+@export_category("Behaviour Variables")
 @export var is_spiky: bool = false
 @export var can_fly: bool = false
 @export var can_pass_walls: bool = false
