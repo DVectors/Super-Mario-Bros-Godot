@@ -12,6 +12,7 @@ var state_factory
 
 @onready var downwards_raycasts: Array[RayCast2D] = [$RayCastDownLeft, $RayCastDownRight, $RayCastDownMiddle]
 @onready var stomp_area: Area2D = $StompArea
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	state_factory = StateFactory.new()
@@ -37,7 +38,7 @@ func change_state(new_state):
 		
 	var callable: Callable = Callable(self, "change_state")
 	state = state_factory.get_state(new_state).new()
-	state.setup(callable, $AnimatedSprite2D, self)
+	state.setup(callable, animated_sprite_2d, self)
 	state.name = "current_state"
 	add_child(state)
 
@@ -76,5 +77,7 @@ func __enable_raycasts(enable: bool) -> void:
 			
 func __stomp(enemy: Enemy) -> void:
 	if not enemy.is_spiky and not enemy.is_platform:
+		animated_sprite_2d.play("mario_jump")
 		velocity.y = BOUNCE_VELOCITY
+		
 		enemy.die(DeathTypes.STOMPED)
