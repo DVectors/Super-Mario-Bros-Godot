@@ -44,6 +44,8 @@ func __set_enemy_to_friendly() -> void:
 	if  is_friendly:
 		set_collision_layer_value(2, false) # Disable object on the enemy layer
 		set_collision_layer_value(4, true) # Set layer to friendly, so player can pass through them
+		
+		set_collision_mask_value(2, false) # Prevent friendly enemies from interacting and colliding with normal enemies
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
