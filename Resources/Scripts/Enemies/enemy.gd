@@ -14,6 +14,7 @@ class_name Enemy
 @export var can_turn_from_edge: bool = false
 @export var can_move: bool = true
 @export var is_friendly: bool = false
+@export var can_kill_with_fireball: bool = true
 @export_enum("Left", "Right") var start_direction: String = "Left"
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
