@@ -34,8 +34,10 @@ func _ready() -> void:
 	
 func set_start_direction() -> int:
 	if start_direction == "Left":
+		_flip_direction()
 		return Directions.LEFT
 	else:
+		_flip_direction()
 		return Directions.RIGHT
 		
 func __set_enemy_to_friendly() -> void:
