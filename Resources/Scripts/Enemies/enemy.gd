@@ -26,6 +26,8 @@ const Directions: Dictionary = {
 	RIGHT = 1
 }
 
+var has_been_killed: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	direction = set_start_direction()
@@ -78,6 +80,8 @@ func _flip_direction():
 	animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
 	
 func die(death_type: int) -> void:
+	has_been_killed = true
+	
 	GameInstanceManager.add_points(points)
 	collision_shape_2d.set_deferred("disabled", true)
 
