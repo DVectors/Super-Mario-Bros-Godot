@@ -35,13 +35,6 @@ collision_mask = 6
 safe_margin = 0.1
 script = ExtResource("1_s48uw")
 speed = 50.0
-points = null
-is_spiky = null
-can_fly = null
-can_pass_walls = null
-is_platform = null
-can_turn_from_edge = null
-can_move = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 2)

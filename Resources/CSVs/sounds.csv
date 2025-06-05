@@ -2,3 +2,4 @@ key,path
 jump,res://Resources/Audio/SoundEffects/jump.wav
 fireball,res://Resources/Audio/SoundEffects/fireball.wav
 stomp,res://Resources/Audio/SoundEffects/stompswim.wav
+coin,res://Resources/Audio/SoundEffects/coin.wav

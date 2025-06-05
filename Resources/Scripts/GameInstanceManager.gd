@@ -15,6 +15,13 @@ static func add_points(points_gained: int) -> void:
 
 static func get_points() -> int:
 	return points
+	
+static func add_coins(coins_gained: int) -> void:
+	coins += coins_gained
+	
+	if coins >= 100:
+		lives += 1
+		coins = 0
 
 static func get_coins() -> int:
 	return coins
