@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 sound_manager="*res://Resources/Scripts/Audio/SoundManager.gd"
 CsvReader="*res://Resources/Scripts/Utilities/CSVReader.gd"
+game_instance_manager="*res://Resources/Scripts/GameInstanceManager.gd"
 
 [dotnet]
 

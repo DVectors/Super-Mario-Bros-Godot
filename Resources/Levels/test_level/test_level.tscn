@@ -16,41 +16,18 @@ tile_map_data = PackedByteArray("AAD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD7/wIAAAAAAAA
 
 [node name="Koopa Troopa" parent="." instance=ExtResource("4_3v2vq")]
 position = Vector2(216, -12)
-points = 100
-is_spiky = false
-can_fly = false
-can_pass_walls = false
-is_platform = false
-can_turn_from_edge = false
-can_move = true
 
 [node name="Goomba2" parent="." instance=ExtResource("3_nep21")]
 position = Vector2(176, -8)
-points = 100
-is_spiky = false
-can_fly = false
-can_pass_walls = false
-is_platform = false
-can_turn_from_edge = false
-can_move = true
 
 [node name="Goomba3" parent="." instance=ExtResource("3_nep21")]
 position = Vector2(256, -8)
-points = 100
-is_spiky = false
-can_fly = false
-can_pass_walls = false
-is_platform = false
-can_turn_from_edge = false
-can_move = true
 
 [node name="Goomba" parent="." instance=ExtResource("3_nep21")]
 position = Vector2(39, -8)
-points = 100
-is_spiky = false
-can_fly = false
-can_pass_walls = false
-is_platform = false
-can_turn_from_edge = false
 can_move = false
 is_friendly = true
+
+[node name="Koopa Troopa2" parent="." instance=ExtResource("4_3v2vq")]
+position = Vector2(62, -12)
+start_direction = "Right"

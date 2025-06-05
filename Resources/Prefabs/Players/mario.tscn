@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqbk3iejqw6ct"]
+[gd_scene load_steps=16 format=3 uid="uid://bqbk3iejqw6ct"]
 
 [ext_resource type="Texture2D" uid="uid://daq4x46xvd3ot" path="res://Resources/Sprites/Player/Mario/mario_idle.png" id="1_l2rhg"]
 [ext_resource type="Script" uid="uid://dcrdimwe3u30i" path="res://Resources/Scripts/Players/mario.gd" id="1_pqfsm"]
 [ext_resource type="Texture2D" uid="uid://bfeymnovrcpa7" path="res://Resources/Sprites/Player/Mario/mario_dead.png" id="2_e65qd"]
 [ext_resource type="Texture2D" uid="uid://c76txdyg4svmr" path="res://Resources/Sprites/Player/Mario/mario_jump.png" id="2_r82oe"]
 [ext_resource type="Texture2D" uid="uid://cbhlew3k1hwjt" path="res://Resources/Sprites/Player/Mario/mario_walk.png" id="3_mehmk"]
+[ext_resource type="PackedScene" uid="uid://nx6r5b5gm4s" path="res://Resources/Prefabs/HUD/hud.tscn" id="6_e65qd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sn36"]
 size = Vector2(16, 16)
@@ -94,6 +95,10 @@ frame_progress = 0.781833
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.665, 2.665)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="HUD" parent="Camera2D/CanvasLayer" instance=ExtResource("6_e65qd")]
 
 [node name="RayCastDownLeft" type="RayCast2D" parent="."]
 position = Vector2(-7, 8)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://nx6r5b5gm4s"]
+[gd_scene load_steps=3 format=3 uid="uid://nx6r5b5gm4s"]
 
+[ext_resource type="Script" uid="uid://bkkkmby2ma2e" path="res://Resources/Scripts/HUD/HUDManager.gd" id="1_5jixc"]
 [ext_resource type="FontFile" uid="uid://bkgp0ba8t6617" path="res://Resources/Fonts/SuperMarioBrosNES/super-mario-bros-nes.otf" id="1_8d57i"]
 
 [node name="HUD" type="Control"]
@@ -7,6 +8,7 @@ layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+script = ExtResource("1_5jixc")
 
 [node name="PlayerLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -19,6 +21,7 @@ theme_override_font_sizes/normal_font_size = 0
 text = "Player"
 
 [node name="PlayerScoreLabel" type="RichTextLabel" parent="PlayerLabel"]
+layout_mode = 0
 offset_top = 24.0
 offset_right = 142.0
 offset_bottom = 64.0
@@ -27,6 +30,7 @@ theme_override_font_sizes/normal_font_size = 0
 text = "000000"
 
 [node name="CoinsLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 251.0
 offset_top = 25.0
 offset_right = 393.0
@@ -36,6 +40,7 @@ theme_override_font_sizes/normal_font_size = 0
 text = "Coins"
 
 [node name="CoinAmountLabel" type="RichTextLabel" parent="CoinsLabel"]
+layout_mode = 0
 offset_top = 24.0
 offset_right = 142.0
 offset_bottom = 64.0
@@ -44,15 +49,17 @@ theme_override_font_sizes/normal_font_size = 0
 text = "x00"
 
 [node name="WorldLabel" type="RichTextLabel" parent="."]
-offset_left = 770.0
+layout_mode = 0
+offset_left = 783.0
 offset_top = 25.0
-offset_right = 912.0
+offset_right = 925.0
 offset_bottom = 65.0
 theme_override_fonts/normal_font = ExtResource("1_8d57i")
 theme_override_font_sizes/normal_font_size = 0
 text = "World"
 
 [node name="LevelNameLabel" type="RichTextLabel" parent="WorldLabel"]
+layout_mode = 0
 offset_top = 24.0
 offset_right = 142.0
 offset_bottom = 64.0
@@ -61,15 +68,17 @@ theme_override_font_sizes/normal_font_size = 0
 text = "1-1"
 
 [node name="TimeLabel" type="RichTextLabel" parent="."]
-offset_left = 914.0
+layout_mode = 0
+offset_left = 927.0
 offset_top = 25.0
-offset_right = 1056.0
+offset_right = 1069.0
 offset_bottom = 65.0
 theme_override_fonts/normal_font = ExtResource("1_8d57i")
 theme_override_font_sizes/normal_font_size = 0
 text = "Time"
 
 [node name="TimeAmountLabel" type="RichTextLabel" parent="TimeLabel"]
+layout_mode = 0
 offset_top = 24.0
 offset_right = 142.0
 offset_bottom = 64.0

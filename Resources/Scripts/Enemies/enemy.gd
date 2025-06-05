@@ -78,6 +78,7 @@ func _flip_direction():
 	animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
 	
 func die(death_type: int) -> void:
+	GameInstanceManager.add_points(points)
 	collision_shape_2d.set_deferred("disabled", true)
 
 	match death_type:
