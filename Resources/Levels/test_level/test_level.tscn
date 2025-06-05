@@ -35,8 +35,6 @@ start_direction = "Right"
 
 [node name="Coin" parent="." instance=ExtResource("5_5tslh")]
 position = Vector2(59, -41)
-coin_value = 3
 
 [node name="Coin2" parent="." instance=ExtResource("5_5tslh")]
 position = Vector2(36, -41)
-coin_value = 99
