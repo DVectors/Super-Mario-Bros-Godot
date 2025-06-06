@@ -80,18 +80,19 @@ func _flip_direction():
 	animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
 	
 func die(death_type: int) -> void:
-	has_been_killed = true
+	if not has_been_killed:
+		has_been_killed = true
+		
+		GameInstanceManager.add_points(points)
+		collision_shape_2d.set_deferred("disabled", true)
 	
-	GameInstanceManager.add_points(points)
-	collision_shape_2d.set_deferred("disabled", true)
-
-	match death_type:
-		DeathTypes.STOMPED:
-			__handle_stomp_death()
-		DeathTypes.FIREBALL:
-			pass
-		DeathTypes.HIT:
-			pass
+		match death_type:
+			DeathTypes.STOMPED:
+				__handle_stomp_death()
+			DeathTypes.FIREBALL:
+				pass
+			DeathTypes.HIT:
+				pass
 
 func __handle_stomp_death() -> void:
 	SoundManager.play("stomp")

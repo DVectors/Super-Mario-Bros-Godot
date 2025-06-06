@@ -29,12 +29,14 @@ position = Vector2(39, -8)
 can_move = false
 is_friendly = true
 
-[node name="Koopa Troopa2" parent="." instance=ExtResource("4_3v2vq")]
-position = Vector2(62, -12)
-start_direction = "Right"
-
 [node name="Coin" parent="." instance=ExtResource("5_5tslh")]
-position = Vector2(59, -41)
+position = Vector2(79, -10)
 
 [node name="Coin2" parent="." instance=ExtResource("5_5tslh")]
-position = Vector2(36, -41)
+position = Vector2(56, -10)
+
+[node name="Coin3" parent="." instance=ExtResource("5_5tslh")]
+position = Vector2(119, -10)
+
+[node name="Coin4" parent="." instance=ExtResource("5_5tslh")]
+position = Vector2(96, -10)

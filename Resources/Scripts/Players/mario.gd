@@ -77,8 +77,7 @@ func __enable_raycasts(enable: bool) -> void:
 			
 func __stomp(enemy: Enemy) -> void:
 	if not enemy.is_spiky and not enemy.is_platform:
-		if not enemy.has_been_killed:
-			animated_sprite_2d.play("mario_jump")
-			velocity.y = BOUNCE_VELOCITY
-			
-			enemy.die(DeathTypes.STOMPED)
+		change_state("fall")
+		velocity.y = BOUNCE_VELOCITY
+		
+		enemy.die(DeathTypes.STOMPED)
