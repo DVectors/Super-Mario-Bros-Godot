@@ -20,12 +20,17 @@ static func add_coins(coins_gained: int) -> void:
 	coins += coins_gained
 	
 	if coins >= 100:
-		SoundManager.play("1up")
-		lives += 1
-		coins = 0
+		var extra_lives: int = coins / 100 # Get amount of lives gained
+		coins = coins % 100 # Get remaining coins after going over
+		
+		add_lives(extra_lives)
 
 static func get_coins() -> int:
 	return coins
+	
+static func add_lives(lives_gained: int) -> void:
+	SoundManager.play("1up")
+	lives += lives_gained
 	
 static func get_lives() -> int:
 	return lives
