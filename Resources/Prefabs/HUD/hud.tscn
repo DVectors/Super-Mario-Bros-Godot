@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://nx6r5b5gm4s"]
+[gd_scene load_steps=5 format=3 uid="uid://nx6r5b5gm4s"]
 
 [ext_resource type="Script" uid="uid://bkkkmby2ma2e" path="res://Resources/Scripts/HUD/HUDManager.gd" id="1_5jixc"]
 [ext_resource type="FontFile" uid="uid://bkgp0ba8t6617" path="res://Resources/Fonts/SuperMarioBrosNES/super-mario-bros-nes.otf" id="1_8d57i"]
+[ext_resource type="Texture2D" uid="uid://dmrwdki0o3e28" path="res://Resources/Sprites/Items/Coins/coin.png" id="3_ubpe3"]
+[ext_resource type="Texture2D" uid="uid://c0jveouxrgolo" path="res://Resources/Sprites/UI/Icons/mario-icon.png" id="4_iggbp"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -28,25 +30,6 @@ offset_bottom = 64.0
 theme_override_fonts/normal_font = ExtResource("1_8d57i")
 theme_override_font_sizes/normal_font_size = 0
 text = "000000"
-
-[node name="CoinsLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 251.0
-offset_top = 25.0
-offset_right = 393.0
-offset_bottom = 65.0
-theme_override_fonts/normal_font = ExtResource("1_8d57i")
-theme_override_font_sizes/normal_font_size = 0
-text = "Coins"
-
-[node name="CoinAmountLabel" type="RichTextLabel" parent="CoinsLabel"]
-layout_mode = 0
-offset_top = 24.0
-offset_right = 142.0
-offset_bottom = 64.0
-theme_override_fonts/normal_font = ExtResource("1_8d57i")
-theme_override_font_sizes/normal_font_size = 0
-text = "x00"
 
 [node name="WorldLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -85,3 +68,33 @@ offset_bottom = 64.0
 theme_override_fonts/normal_font = ExtResource("1_8d57i")
 theme_override_font_sizes/normal_font_size = 0
 text = "999"
+
+[node name="Coin" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(256.5, 33.5)
+scale = Vector2(1.4375, 1.4375)
+texture = ExtResource("3_ubpe3")
+
+[node name="CoinAmountLabel" type="RichTextLabel" parent="."]
+offset_left = 273.0
+offset_top = 26.0
+offset_right = 323.0
+offset_bottom = 45.0
+theme_override_fonts/normal_font = ExtResource("1_8d57i")
+theme_override_font_sizes/normal_font_size = 0
+text = "x00"
+
+[node name="Mario-icon" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(256, 58)
+scale = Vector2(1.77273, 2.10714)
+texture = ExtResource("4_iggbp")
+
+[node name="LivesAmountLabel" type="RichTextLabel" parent="."]
+offset_left = 273.0
+offset_top = 49.0
+offset_right = 323.0
+offset_bottom = 68.0
+theme_override_fonts/normal_font = ExtResource("1_8d57i")
+theme_override_font_sizes/normal_font_size = 0
+text = "x00"
