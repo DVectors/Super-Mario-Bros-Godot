@@ -20,6 +20,7 @@ static func add_coins(coins_gained: int) -> void:
 	coins += coins_gained
 	
 	if coins >= 100:
+		SoundManager.play("1up")
 		lives += 1
 		coins = 0
 
