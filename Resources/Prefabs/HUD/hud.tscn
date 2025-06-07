@@ -104,3 +104,4 @@ text = "x00"
 
 [node name="ItemStorage" parent="." instance=ExtResource("5_hkey5")]
 position = Vector2(549, 51)
+scale = Vector2(2, 2)
