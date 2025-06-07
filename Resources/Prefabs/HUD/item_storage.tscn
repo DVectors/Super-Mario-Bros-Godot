@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://5xhprp2xo4no"]
+
+[ext_resource type="Texture2D" uid="uid://cdpkydcc6cho7" path="res://Resources/Sprites/UI/HUD/ItemStorage/ItemStorage.png" id="1_6t76u"]
+
+[node name="ItemStorage" type="Node2D"]
+scale = Vector2(2.585, 2.585)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_6t76u")

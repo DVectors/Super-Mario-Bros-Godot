@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://nx6r5b5gm4s"]
+[gd_scene load_steps=6 format=3 uid="uid://nx6r5b5gm4s"]
 
 [ext_resource type="Script" uid="uid://bkkkmby2ma2e" path="res://Resources/Scripts/HUD/HUDManager.gd" id="1_5jixc"]
 [ext_resource type="FontFile" uid="uid://bkgp0ba8t6617" path="res://Resources/Fonts/SuperMarioBrosNES/super-mario-bros-nes.otf" id="1_8d57i"]
 [ext_resource type="Texture2D" uid="uid://dmrwdki0o3e28" path="res://Resources/Sprites/Items/Coins/coin.png" id="3_ubpe3"]
-[ext_resource type="Texture2D" uid="uid://c0jveouxrgolo" path="res://Resources/Sprites/UI/Icons/mario-icon.png" id="4_iggbp"]
+[ext_resource type="Texture2D" path="res://Resources/Sprites/UI/Icons/mario-icon.png" id="4_iggbp"]
+[ext_resource type="PackedScene" uid="uid://5xhprp2xo4no" path="res://Resources/Prefabs/HUD/item_storage.tscn" id="5_hkey5"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -100,3 +101,6 @@ offset_bottom = 68.0
 theme_override_fonts/normal_font = ExtResource("1_8d57i")
 theme_override_font_sizes/normal_font_size = 0
 text = "x00"
+
+[node name="ItemStorage" parent="." instance=ExtResource("5_hkey5")]
+position = Vector2(549, 51)
