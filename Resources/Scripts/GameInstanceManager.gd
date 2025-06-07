@@ -1,22 +1,25 @@
 extends Node
 
-class_name GameInstanceManager
+signal points_amount_changed(new_points_amount: int)
+signal coins_amount_changed(new_coins_amount: int)
+signal lives_amount_changed(new_lives_amount: int)
 
-static var player_name: String = "Daniel"
-static var points : int = 0
-static var coins : int = 0
-static var lives : int = 3
+var player_name: String = "Daniel"
+var points : int = 0
+var coins : int = 0
+var lives : int = 3
 
-static func get_player_name() -> String:
+func get_player_name() -> String:
 	return player_name
 
-static func add_points(points_gained: int) -> void:
+func add_points(points_gained: int) -> void:
 	points += points_gained
+	points_amount_changed.emit(points)
 
-static func get_points() -> int:
+func get_points() -> int:
 	return points
 	
-static func add_coins(coins_gained: int) -> void:
+func add_coins(coins_gained: int) -> void:
 	coins += coins_gained
 	
 	if coins >= 100:
@@ -24,13 +27,17 @@ static func add_coins(coins_gained: int) -> void:
 		coins = coins % 100 # Get remaining coins after going over
 		
 		add_lives(extra_lives)
+		
+	coins_amount_changed.emit(coins)
 
-static func get_coins() -> int:
+func get_coins() -> int:
 	return coins
 	
-static func add_lives(lives_gained: int) -> void:
+func add_lives(lives_gained: int) -> void:
 	SoundManager.play("1up")
 	lives += lives_gained
 	
-static func get_lives() -> int:
+	lives_amount_changed.emit(lives)
+	
+func get_lives() -> int:
 	return lives

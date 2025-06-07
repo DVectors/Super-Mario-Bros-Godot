@@ -29,7 +29,7 @@ offset_right = 142.0
 offset_bottom = 64.0
 theme_override_fonts/normal_font = ExtResource("1_8d57i")
 theme_override_font_sizes/normal_font_size = 0
-text = "000000"
+text = "0000000"
 
 [node name="WorldLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -76,6 +76,7 @@ scale = Vector2(1.4375, 1.4375)
 texture = ExtResource("3_ubpe3")
 
 [node name="CoinAmountLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 273.0
 offset_top = 26.0
 offset_right = 323.0
@@ -91,6 +92,7 @@ scale = Vector2(1.77273, 2.10714)
 texture = ExtResource("4_iggbp")
 
 [node name="LivesAmountLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 273.0
 offset_top = 49.0
 offset_right = 323.0
