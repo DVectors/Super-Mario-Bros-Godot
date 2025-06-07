@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bkkkmby2ma2e" path="res://Resources/Scripts/HUD/HUDManager.gd" id="1_5jixc"]
 [ext_resource type="FontFile" uid="uid://bkgp0ba8t6617" path="res://Resources/Fonts/SuperMarioBrosNES/super-mario-bros-nes.otf" id="1_8d57i"]
 [ext_resource type="Texture2D" uid="uid://dmrwdki0o3e28" path="res://Resources/Sprites/Items/Coins/coin.png" id="3_ubpe3"]
-[ext_resource type="Texture2D" path="res://Resources/Sprites/UI/Icons/mario-icon.png" id="4_iggbp"]
+[ext_resource type="Texture2D" uid="uid://c0jveouxrgolo" path="res://Resources/Sprites/UI/HUD/Icons/mario-icon.png" id="4_hkey5"]
 [ext_resource type="PackedScene" uid="uid://5xhprp2xo4no" path="res://Resources/Prefabs/HUD/item_storage.tscn" id="5_hkey5"]
 
 [node name="HUD" type="Control"]
@@ -90,7 +90,7 @@ text = "x00"
 texture_filter = 1
 position = Vector2(256, 58)
 scale = Vector2(1.77273, 2.10714)
-texture = ExtResource("4_iggbp")
+texture = ExtResource("4_hkey5")
 
 [node name="LivesAmountLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
