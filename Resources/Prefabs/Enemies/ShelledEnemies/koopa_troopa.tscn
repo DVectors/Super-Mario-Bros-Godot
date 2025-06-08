@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cub21kxtd1jhb"]
+[gd_scene load_steps=8 format=3 uid="uid://cub21kxtd1jhb"]
 
 [ext_resource type="Texture2D" uid="uid://he7iyxcgs20d" path="res://Resources/Sprites/Enemies/ShelledEnemies/KoopaTroopas/Overworld/overworld_koopa_troopa.png" id="1_clg6v"]
-[ext_resource type="Script" uid="uid://c6ecedguk2ab" path="res://Resources/Scripts/Enemies/enemy.gd" id="1_s48uw"]
+[ext_resource type="Script" uid="uid://uaiyewjudrdy" path="res://Resources/Scripts/Enemies/shelled_enemy.gd" id="1_s48uw"]
+[ext_resource type="PackedScene" uid="uid://bg61bn8g3mybq" path="res://Resources/Prefabs/Enemies/ShelledEnemies/Shells/green_shell.tscn" id="2_ul0qg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s48uw"]
 size = Vector2(15, 20)
@@ -34,6 +35,7 @@ collision_layer = 2
 collision_mask = 6
 safe_margin = 0.1
 script = ExtResource("1_s48uw")
+shell = ExtResource("2_ul0qg")
 speed = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

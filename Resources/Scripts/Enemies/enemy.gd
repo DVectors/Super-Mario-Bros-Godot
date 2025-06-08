@@ -1,11 +1,9 @@
 extends CharacterBody2D
-
 class_name Enemy
 
 @export_category("General")
 @export var speed: float = 20
 @export var points: int = 100
-
 @export_category("Behaviour Variables")
 @export var is_spiky: bool = false
 @export var can_fly: bool = false
@@ -15,6 +13,7 @@ class_name Enemy
 @export var can_move: bool = true
 @export var is_friendly: bool = false
 @export var can_kill_with_fireball: bool = true
+
 @export_enum("Left", "Right") var start_direction: String = "Left"
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -22,78 +21,86 @@ class_name Enemy
 
 var direction: int
 const Directions: Dictionary = {
-	LEFT = -1,
-	RIGHT = 1
-}
-
+                                   LEFT = -1,
+                                   RIGHT = 1
+                               }
 var has_been_killed: bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	direction = set_start_direction()
-	__set_enemy_to_friendly()
-		
-	
+    direction = set_start_direction()
+    __set_enemy_to_friendly()
+
+
 func set_start_direction() -> int:
-	if start_direction == "Left":
-		return Directions.LEFT
-	else:
-		_flip_direction()
-		return Directions.RIGHT
-		
+    if start_direction == "Left":
+        return Directions.LEFT
+    else:
+        _flip_direction()
+        return Directions.RIGHT
+
+
 func __set_enemy_to_friendly() -> void:
-	if  is_friendly:
-		set_collision_layer_value(2, false) # Disable object on the enemy layer
-		set_collision_layer_value(4, true) # Set layer to friendly, so player can pass through them
-		
-		set_collision_mask_value(2, false) # Prevent friendly enemies from interacting and colliding with normal enemies
-	
+    if  is_friendly:
+        set_collision_layer_value(2, false) # Disable object on the enemy layer
+        set_collision_layer_value(4, true) # Set layer to friendly, so player can pass through them
+
+        set_collision_mask_value(2, false) # Prevent friendly enemies from interacting and colliding with normal enemies
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-	
-func _physics_process(delta: float) -> void:
-	__handle_gravity(delta)
+    pass
 
-	__detect_wall()
-	
-	if can_move:
-		velocity.x = direction * speed
-	
-	move_and_slide()
-	
+
+func _physics_process(delta: float) -> void:
+    __handle_gravity(delta)
+
+    __detect_wall()
+
+    if can_move:
+        velocity.x = direction * speed
+
+    move_and_slide()
+
+
 func __handle_gravity(delta: float) -> void:
-	if not can_fly:
-		if not is_on_floor():
-			velocity += get_gravity() * delta # Apply gravity
-			
+    if not can_fly:
+        if not is_on_floor():
+            velocity += get_gravity() * delta # Apply gravity
+
+
 func __detect_wall() -> void:
-	if is_on_wall():
-		if direction == Directions.LEFT: #Left
-			_flip_direction()
-			direction = Directions.RIGHT
-		elif direction == Directions.RIGHT: #Right
-			_flip_direction()
-			direction = Directions.LEFT
+    if is_on_wall():
+        if direction == Directions.LEFT: #Left
+            _flip_direction()
+            direction = Directions.RIGHT
+        elif direction == Directions.RIGHT: #Right
+            _flip_direction()
+            direction = Directions.LEFT
+
 
 func _flip_direction():
-	animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
-	
-func die(death_type: int) -> void:
-	if not has_been_killed:
-		has_been_killed = true
-		
-		GameInstanceManager.add_points(points)
-		collision_shape_2d.set_deferred("disabled", true)
-	
-		match death_type:
-			DeathTypes.STOMPED:
-				__handle_stomp_death()
-			DeathTypes.FIREBALL:
-				pass
-			DeathTypes.HIT:
-				pass
+    animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
 
-func __handle_stomp_death() -> void:
-	SoundManager.play("stomp")
-	queue_free()
+
+func die(death_type: int) -> void:
+    if not has_been_killed:
+        has_been_killed = true
+
+        GameInstanceManager.add_points(points)
+        collision_shape_2d.set_deferred("disabled", true)
+
+        match death_type:
+            DeathTypes.STOMPED:
+                handle_stomp_death()
+            DeathTypes.FIREBALL:
+                pass
+            DeathTypes.HIT:
+                pass
+
+
+func handle_stomp_death() -> void:
+    SoundManager.play("stomp")
+    queue_free()

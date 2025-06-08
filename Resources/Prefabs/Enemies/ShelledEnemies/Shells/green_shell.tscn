@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg61bn8g3mybq"]
+
+[ext_resource type="Texture2D" uid="uid://bu1suxe4688wr" path="res://Resources/Sprites/Enemies/ShelledEnemies/KoopaTroopas/Overworld/Shells/green_shell.png" id="1_iv547"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctgs5"]
+size = Vector2(16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo5bt"]
+atlas = ExtResource("1_iv547")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7c5x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo5bt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GreenShell" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ctgs5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_q7c5x")
