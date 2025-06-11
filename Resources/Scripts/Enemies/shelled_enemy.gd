@@ -4,7 +4,6 @@ class_name ShelledEnemy
 @export_category("Shell Type")
 @export var shell: PackedScene # Give the enemy a shell that will spawn after they've been stomped
 
-
 func handle_stomp_death() -> void:
     print("Spawning shell")
 
